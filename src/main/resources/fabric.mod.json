@@ -1,11 +1,11 @@
 {
 	"schemaVersion": 1,
-	"id": "examplemod",
+	"id": "roundels",
 	"version": "${version}",
-	"name": "Example Mod",
-	"description": "This mod aims to help new BTA modders.",
+	"name": "Roundels BTA",
+	"description": "This mod adds roundels to BTA",
 	"authors": [
-		"Turnip Labs"
+		"The_Midford"
 	],
 	"contact": {
 		"homepage": "",
@@ -16,20 +16,20 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"turniplabs.examplemod.ExampleMod"
+			"malicedev.roundels.Main"
 		],
 		"beforeGameStart": [
-			"turniplabs.examplemod.ExampleMod"
+			"malicedev.roundels.Main"
 		],
 		"afterGameStart": [
-			"turniplabs.examplemod.ExampleMod"
+			"malicedev.roundels.Main"
 		],
 		"recipesReady": [
-			"turniplabs.examplemod.ExampleMod"
+			"malicedev.roundels.Main"
 		]
 	},
 	"mixins": [
-		"examplemod.mixins.json"
+		"roundels.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=${fabricloader}",
