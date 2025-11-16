@@ -14,11 +14,15 @@ public class RoundelsBlocks implements BlockInitEntrypoint {
 
 	@Override
 	public void afterBlockInit() {
-		TEST = new BlockBuilder(Roundels.MOD_ID)
+		TEST = makeRoundel("test","test","TEST", Material.stone, Blocks.LOG_OAK, 0);
+	}
+
+	public Block<BlockLogicRoundel> makeRoundel(String translationKey, String name, String configId, Material material, Block<?> baseBlock, int baseMetadata) {
+		return new BlockBuilder(Roundels.MOD_ID)
 			.setBlockItem((block)->new ItemBlockRoundel((Block<BlockLogicRoundel>) block))
-			.build("test", "test", RoundelsConfig.block("TEST"),
+			.build(translationKey, name, RoundelsConfig.block(configId),
 				(block) ->
-					new BlockLogicRoundel(block, Material.stone, Blocks.LOG_OAK, 0)
+					new BlockLogicRoundel(block, material, baseBlock, baseMetadata)
 			);
 	}
 }
