@@ -11,16 +11,20 @@ import turniplabs.halplibe.util.BlockInitEntrypoint;
 public class RoundelsBlocks implements BlockInitEntrypoint {
 
 	public static Block<BlockLogicRoundel> TEST;
+	public static Block<BlockLogicRoundel> TEST2;
 
 	@Override
 	public void afterBlockInit() {
-		TEST = makeRoundel("test","test","TEST", Material.stone, Blocks.LOG_OAK, 0);
+		TEST = makeRoundel("test", Material.stone, Blocks.LOG_OAK, 0);
+		TEST2 = makeRoundel("test2", Material.cloth, Blocks.WOOL, 5);
+
+		Roundels.LOGGER.info("Using {} IDs.", RoundelsConfig.currentId - RoundelsConfig.getStartingId());
 	}
 
-	public Block<BlockLogicRoundel> makeRoundel(String translationKey, String name, String configId, Material material, Block<?> baseBlock, int baseMetadata) {
+	public Block<BlockLogicRoundel> makeRoundel(String name, Material material, Block<?> baseBlock, int baseMetadata) {
 		return new BlockBuilder(Roundels.MOD_ID)
 			.setBlockItem((block)->new ItemBlockRoundel((Block<BlockLogicRoundel>) block))
-			.build(translationKey, name, RoundelsConfig.block(configId),
+			.build(name, name, RoundelsConfig.currentId++,
 				(block) ->
 					new BlockLogicRoundel(block, material, baseBlock, baseMetadata)
 			);
