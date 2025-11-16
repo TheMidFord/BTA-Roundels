@@ -5,7 +5,8 @@
 	"name": "Roundels BTA",
 	"description": "This mod adds roundels to BTA",
 	"authors": [
-		"The_Midford"
+		"The_Midford",
+		"sunsetsatellite"
 	],
 	"contact": {
 		"homepage": "",
@@ -16,16 +17,22 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"malicedev.roundels.Main"
+			"malicedev.roundels.Roundels"
 		],
 		"beforeGameStart": [
-			"malicedev.roundels.Main"
+			"malicedev.roundels.Roundels"
 		],
 		"afterGameStart": [
-			"malicedev.roundels.Main"
+			"malicedev.roundels.Roundels"
 		],
 		"recipesReady": [
-			"malicedev.roundels.Main"
+			"malicedev.roundels.Roundels"
+		],
+		"initModels": [
+			"malicedev.roundels.RoundelsModels"
+		],
+		"afterBlockInit": [
+			"malicedev.roundels.RoundelsBlocks"
 		]
 	},
 	"mixins": [
