@@ -3,7 +3,6 @@ package malicedev.roundels;
 import malicedev.roundels.block.BlockLogicRoundel;
 import malicedev.roundels.item.ItemBlockRoundel;
 import net.minecraft.core.block.Block;
-import net.minecraft.core.block.BlockLogic;
 import net.minecraft.core.block.Blocks;
 import net.minecraft.core.block.material.Material;
 import turniplabs.halplibe.helper.BlockBuilder;
@@ -19,7 +18,7 @@ public class RoundelsBlocks implements BlockInitEntrypoint {
 			.setBlockItem((block)->new ItemBlockRoundel((Block<BlockLogicRoundel>) block))
 			.build("test", "test", RoundelsConfig.block("TEST"),
 				(block) ->
-					new BlockLogicRoundel(block, Material.stone, Blocks.STONE, 0)
+					new BlockLogicRoundel(block, Material.stone, Blocks.LOG_OAK, 0)
 			);
 	}
 }

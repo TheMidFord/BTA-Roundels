@@ -1,7 +1,6 @@
 package malicedev.roundels.block.model;
 
 import malicedev.roundels.block.BlockLogicRoundel;
-import net.minecraft.client.render.Lighting;
 import net.minecraft.client.render.block.model.BlockModel;
 import net.minecraft.client.render.block.model.BlockModelDispatcher;
 import net.minecraft.client.render.block.model.BlockModelStandard;
@@ -14,7 +13,6 @@ import net.minecraft.core.util.helper.Side;
 import net.minecraft.core.util.phys.AABB;
 import net.minecraft.core.world.WorldSource;
 import org.jetbrains.annotations.Nullable;
-import org.lwjgl.opengl.GL11;
 
 public class BlockModelRoundel extends BlockModelStandard<BlockLogicRoundel> {
 
@@ -161,9 +159,15 @@ public class BlockModelRoundel extends BlockModelStandard<BlockLogicRoundel> {
 	}
 
 	@Override
-	public IconCoordinate getBlockTextureFromSideAndMetadata(Side side, int data) {
+	public IconCoordinate getBlockTextureFromSideAndMetadata(Side side, int metadata) {
 		BlockLogicRoundel logic = block.getLogic();
 		BlockModel<?> model = BlockModelDispatcher.getInstance().getDispatch(logic.baseBlock);
+		int allSides = metadata & BlockLogicRoundel.MASK_ALL_SIDES;
+		if(allSides == 0b0000_1000) {
+			int sideId = metadata & BlockLogicRoundel.MASK_DIRECTION;
+			Side forcedSide = Side.getSideById(sideId);
+			return model.getBlockTextureFromSideAndMetadata(forcedSide, logic.baseMetadata);
+		}
 		return model.getBlockTextureFromSideAndMetadata(side, logic.baseMetadata);
 	}
 

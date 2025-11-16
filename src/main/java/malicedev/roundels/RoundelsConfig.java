@@ -1,7 +1,6 @@
 package malicedev.roundels;
 
 import net.minecraft.core.block.Block;
-import net.minecraft.core.item.Item;
 import turniplabs.halplibe.util.TomlConfigHandler;
 import turniplabs.halplibe.util.toml.Toml;
 

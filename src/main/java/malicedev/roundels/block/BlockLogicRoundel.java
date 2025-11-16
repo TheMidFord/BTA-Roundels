@@ -39,13 +39,13 @@ public class BlockLogicRoundel extends BlockLogic {
 		final Direction direction = mob.getPlacementDirection(side).getOpposite();
 
 		int metadata = world.getBlockMetadata(x, y, z);
-		world.setBlockMetadataWithNotify(x, y, z, metadata | directionToMeta(direction));
+		if((metadata & MASK_ALL_SIDES) != 0b0000_1000) world.setBlockMetadataWithNotify(x, y, z, metadata | directionToMeta(direction));
 	}
 
 	@Override
 	public void onBlockPlacedOnSide(World world, int x, int y, int z, @NotNull Side side, double xPlaced, double yPlaced) {
 		int metadata = world.getBlockMetadata(x, y, z);
-		world.setBlockMetadataWithNotify(x, y, z, metadata | directionToMeta(side.getDirection()));
+		if((metadata & MASK_ALL_SIDES) != 0b0000_1000) world.setBlockMetadataWithNotify(x, y, z, metadata | directionToMeta(side.getDirection()));
 	}
 
 	/*@Override
