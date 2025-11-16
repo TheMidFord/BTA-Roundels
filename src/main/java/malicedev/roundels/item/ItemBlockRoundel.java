@@ -35,6 +35,9 @@ public class ItemBlockRoundel extends ItemBlock<BlockLogicRoundel> {
 			case 5:
 				typeKey = "roundel.roundels.opaque.white.half";
 				break;
+			default:
+				typeKey = "roundel.roundels.unknown";
+				break;
 		}
 		return I18n.getInstance().translateNameKey(block.getLogic().baseBlock.getLanguageKey(block.getLogic().baseMetadata)) + " " + I18n.getInstance().translateNameKey(typeKey) + " " + I18n.getInstance().translateNameKey("tile.roundels.roundel");
 	}
