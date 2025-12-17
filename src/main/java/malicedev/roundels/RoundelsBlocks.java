@@ -14,11 +14,13 @@ public class RoundelsBlocks implements BlockInitEntrypoint {
 
 	public static Block<BlockLogicRoundel> TEST;
 	public static Block<BlockLogicRoundel> TEST2;
+	public static Block<BlockLogicRoundel> TEST3;
 
 	@Override
 	public void afterBlockInit() {
-		TEST = makeRoundel("test", Material.stone, BlockSounds.STONE, Blocks.LOG_OAK, 0);
+		TEST = makeRoundel("test", Material.wood, BlockSounds.WOOD, Blocks.LOG_OAK, 0);
 		TEST2 = makeRoundel("test2", Material.cloth, BlockSounds.CLOTH, Blocks.WOOL, 5);
+		TEST3 = makeRoundel("test3", Material.wood, BlockSounds.WOOD, Blocks.PLANKS_OAK, 0);
 
 		Roundels.LOGGER.info("Using {} IDs.", RoundelsConfig.currentId - RoundelsConfig.getStartingId());
 	}
